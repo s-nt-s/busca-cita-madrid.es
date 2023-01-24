@@ -1,0 +1,4 @@
+beautifulsoup4==4.11.1
+lxml==4.2.1
+munch==2.5.0
+requests==2.18.4
