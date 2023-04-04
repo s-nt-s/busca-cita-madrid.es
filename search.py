@@ -47,9 +47,6 @@ for d in drange(1, args.dias):
             if (t.idFamiliaCita, t.idTipoServicio) != (args.familia, args.servicio):
                 continue
             for h in set(map(lambda x: x.split(":")[0], api.get_huecos(t.idTramite, d))):
-                ih = int(h)
-                if d > date(2023, 1, 9) and int(h) < 15:
-                    continue
                 if h not in huecos:
                     huecos[h] = []
                 huecos[h].append(o)
