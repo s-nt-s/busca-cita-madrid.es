@@ -2,6 +2,7 @@
 
 import argparse
 from datetime import date, datetime, timedelta
+import sys
 
 from core.api import Api
 
@@ -13,9 +14,19 @@ parser.add_argument(
 parser.add_argument(
     '--servicio', help="Servicio (por defecto 'Gestiones Padrón municipal')", type=int, default=22)
 parser.add_argument(
-    '--dias', help='Intervalo de días a partir de hoy (por defecto 60)', type=int, default=60)
+    '--dias', help='Intervalo de días a partir de hoy (por defecto 60), o día máximo en formato MM.DD', type=float, default=60)
 
 args = parser.parse_args()
+if int(args.dias) == args.dias:
+    args.dias = int(args.dias)
+else:
+    mes = int(args.dias)
+    dia = int(args.dias*100)-(mes*100)
+    hoy = date.today()
+    dia = date(hoy.year, mes, dia)
+    args.dias = (dia - hoy).days
+    if args.dias<=0:
+        sys.exit("No se puede buscar en el pasado")
 
 
 def drange(ini, fin):
