@@ -15,7 +15,7 @@ optional arguments:
   --familia FAMILIA     Familia (por defecto 'Altas, bajas y cambio de
                         domicilio en Padrón')
   --servicio SERVICIO   Servicio (por defecto 'Gestiones Padrón municipal')
-  --dias DIAS           Intervalo de días a partir de hoy (por defecto 60)
+  --dias DIAS           Intervalo de días a partir de hoy (por defecto 60), o día máximo en formato MM.DD
 ```
 
 Formato de salida:
